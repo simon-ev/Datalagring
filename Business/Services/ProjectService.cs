@@ -1,4 +1,7 @@
 ﻿
+using Data.Repositories;
+using ProjectManager.Models;
+
 namespace Business.Services;
 
 public class ProjectService
@@ -14,7 +17,7 @@ public class ProjectService
     }
     public async Task<IEnumerable<Project>> GetProjectsAsync()
     {
-        return await _projectRepository.GetAsync();
+        return await _projectRepository.GetAllAsync();
     }
     public async Task<Project?> GetProjectByIdAsync(int id)
     {

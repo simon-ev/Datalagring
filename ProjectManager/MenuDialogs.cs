@@ -2,7 +2,7 @@
 
 using Business.Services;
 
-namespace ProjectManager;
+namespace Data;
 
 public class MenuDialogs(CustomerService customerService, ProjectService projectService)
 {

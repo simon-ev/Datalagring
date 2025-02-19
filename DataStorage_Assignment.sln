@@ -6,8 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{7C000B41-A950-45EB-B90E-5FCD0EB442D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManager", "ProjectManager\ProjectManager.csproj", "{5808F9A6-6CCA-4DEB-98B3-7E0773C0FEF6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{8CDCB5A0-00AF-4203-9C1E-9BC897E03005}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7C000B41-A950-45EB-B90E-5FCD0EB442D8} = {7C000B41-A950-45EB-B90E-5FCD0EB442D8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +24,11 @@ Global
 		{5808F9A6-6CCA-4DEB-98B3-7E0773C0FEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5808F9A6-6CCA-4DEB-98B3-7E0773C0FEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5808F9A6-6CCA-4DEB-98B3-7E0773C0FEF6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8CDCB5A0-00AF-4203-9C1E-9BC897E03005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CDCB5A0-00AF-4203-9C1E-9BC897E03005}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CDCB5A0-00AF-4203-9C1E-9BC897E03005}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8CDCB5A0-00AF-4203-9C1E-9BC897E03005}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {617B2FA1-0949-4F36-BE81-70DC5C708D1C}
 	EndGlobalSection
 EndGlobal

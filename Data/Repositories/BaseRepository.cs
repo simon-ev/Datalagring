@@ -15,6 +15,13 @@ public abstract class BaseRepository<TEntity>(DataContext context) where TEntity
     {
         await _db.AddAsync(entity);
         await _context.SaveChangesAsync();
+       
+    }
+
+    public async Task<IEnumerable<TEntity>> GetAsync()
+    {
+        var entities = await _db.ToListAsync();
+        return entities;
     }
 
     public async Task<IEnumerable<TEntity>> GetAllAsync()

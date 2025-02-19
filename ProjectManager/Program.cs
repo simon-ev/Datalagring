@@ -1,9 +1,9 @@
-﻿using Business.Services;
+﻿using Data.Services;
 using Data.Contexts;
 using Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ProjectManager;
+using Data;
 
 var services = new ServiceCollection()
     .AddDbContext<DataContext>(options =>
