@@ -7,7 +7,7 @@ namespace Data.Models;
 public class Project
 {
     [Key]
-    public int ProjectId { get; set; }
+    public int ProjectId { get; set; } 
     public string Title { get; set; } = null!;
     public string? Description { get; set; }
 
@@ -16,15 +16,16 @@ public class Project
 
     [Column(TypeName = "date")]
     public DateTime EndDate { get; set; }
-    public int ProjectManager { get; set; }
+    public string ProjectManager { get; set; } = null!;
 
+    public string? CustomerName { get; set; } 
+
+    public int? ProductId { get; set; }
+
+    public string Status { get; set; } = null!;
     public int CustomerId { get; set; }
 
-    public int StatusId { get; set; }
-
-    public int UserId { get; set; }
-
-    public int Service { get; set; }
+    public string Service { get; set; } = null!;
     public int TotalCost { get; set; }
 
 }

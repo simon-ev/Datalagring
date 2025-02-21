@@ -8,16 +8,17 @@
 
   <ItemGroup>
     <Folder Include="Databases\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="microsoft.entityframeworkcore.design" Version="9.0.1">
+    <PackageReference Include="microsoft.entityframeworkcore.design" Version="9.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.2" />
-    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="9.0.1" />
-    <PackageReference Include="microsoft.entityframeworkcore.tools" Version="9.0.1">
+    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="9.0.2" />
+    <PackageReference Include="microsoft.entityframeworkcore.tools" Version="9.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

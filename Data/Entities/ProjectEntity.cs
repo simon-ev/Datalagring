@@ -20,20 +20,21 @@ public class ProjectEntity
     public DateTime EndDate { get; set; }
 
     public int CustomerId { get; set; }
+    [ForeignKey("CustomerId")]
+    public string CustomerName { get; set; } = null!;
     public CustomerEntity Customer { get; set; } = null!;
 
-    public int StatusId { get; set; }
-    public StatusTypeEntity Status { get; set; } = null!;
-
-    public int UserId { get; set; }
-    public UserEntity User { get; set; } = null!;
+    public int Status { get; set; } 
+    //public StatusTypeEntity Status { get; set; } = null!;
 
     public int ProductId { get; set; }
     public ProductEntity Product { get; set; } = null!;
 
     public int TotalCost { get; set; }
-    public int Service { get; set; }
+    public string Service { get; set; } = null!;
 
-    public int ProjectManager { get; set; }
+    public string ProjectManager { get; set; } = null!;
+
+
 
 }

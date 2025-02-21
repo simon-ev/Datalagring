@@ -1,4 +1,4 @@
-﻿
+﻿using System.Linq;
 using Data.Entities;
 using Data.Helpers;
 using Data.Models;
@@ -7,19 +7,40 @@ using Data.Repositories;
 namespace Data.Services;
 
 
-public class ProjectService
+public class ProjectService(ProjectRepository projectRepository, CustomerRepository customerRepository)
 {
-    private readonly ProjectRepository _projectRepository;
-   
-    public ProjectService(ProjectRepository projectRepository)
+    private readonly ProjectRepository _projectRepository = projectRepository;
+    private readonly CustomerRepository _customerRepository = customerRepository;
+
+    public async Task<int> GetProjectCountAsync()
     {
-        _projectRepository = projectRepository;
+        var projects = await _projectRepository.GetAllAsync();
+        return projects.Count();
     }
     public async Task CreateProjectAsync(Project project)
     {
+        
+
+        //Chatgpt för att skapa en ny customer om namnet man har angett inte finns i databasen när man skapar ett nytt projekt
+        var existingCustomer = await _customerRepository.GetAsync(c => c.CustomerName == project.CustomerName);
+
+        if (existingCustomer == null)
+        {
+
+            var newCustomer = new CustomerEntity { CustomerName = project.CustomerName };
+            await _customerRepository.AddAsync(newCustomer);
+            project.CustomerId = newCustomer.Id;
+        }
+        else
+        {
+            project.CustomerId = existingCustomer.Id;
+        }
+
+
         var projectEntity = ProjectMapper.MapToEntity(project);
         await _projectRepository.AddAsync(projectEntity);
     }
+
     public async Task<IEnumerable<Project>> GetProjectsAsync()
     {
         var projectEntities = await _projectRepository.GetAllAsync();
@@ -34,7 +55,7 @@ public class ProjectService
     {
         var projectEntity = ProjectMapper.MapToEntity(project);
         await _projectRepository.UpdateAsync(projectEntity);
-        return true; 
+        return true;
     }
     public async Task<bool> DeleteProjectAsync(int id)
     {
